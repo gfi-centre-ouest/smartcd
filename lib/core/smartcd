@@ -594,19 +594,8 @@ function _smartcd() {
             fi
 
             if [[ $ask_trust == 1 ]]; then
-                echo "smartcd: $smartcd_current_dir/.bash_leave is new or changed."
-                echo ""
-                command cat .bash_leave
-                echo ""
-                echo ""
-                echo -n "Trust? [y/N] "
-                builtin read trust < /dev/tty
-                setup=$(echo $setup | tr 'A-Z' 'a-z')
-                : ${trust:=n}
-                if [[ $trust =~ "y" ]]; then
-                    command mkdir -p "$confdir"
-                    command shasum .bash_leave > $confdir/bash_leave.shasum
-                fi
+				command mkdir -p "$confdir"
+				command shasum .bash_leave > $confdir/bash_leave.shasum
             fi
 
             trust=''
@@ -754,19 +743,8 @@ function _smartcd() {
             fi
 
             if [[ $ask_trust == 1 ]]; then
-                echo "smartcd: $smartcd_current_dir/.bash_enter is new or changed."
-                echo ""
-                command cat .bash_enter
-                echo ""
-                echo ""
-                echo -n "Trust? [y/N] "
-                builtin read trust < /dev/tty
-                setup=$(echo $setup | tr 'A-Z' 'a-z')
-                : ${trust:=n}
-                if [[ $trust =~ "y" ]]; then
-                    command mkdir -p "$confdir"
-                    command shasum .bash_enter > $confdir/bash_enter.shasum
-                fi
+				command mkdir -p "$confdir"
+				command shasum .bash_enter > $confdir/bash_enter.shasum
             fi
 
             trust=''
